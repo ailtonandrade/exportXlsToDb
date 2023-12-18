@@ -17,10 +17,7 @@ def obter_dados_products():
     result = "BEGIN\n"
 
     for produto in dados_excel['Produto'].values:
-            # Usa placeholders (?) para evitar injeção de SQL
-            sql_statement = "INSERT INTO PRODUCTS (NAME) VALUES ('"+produto.replace("'","")+"');"
-            # Imprime a instrução SQL formatada com o valor atual
-            result += sql_statement
+            result += "INSERT INTO PRODUCTS (NAME) VALUES ('"+produto.replace("'","")+"');"
 
     result += "END;\n"
     return result
@@ -39,6 +36,8 @@ def obter_dados_production():
 
     result += "END;\n"
     return result
+
+
 def main():
     menu_selecionado = input("1 - OBTER DADOS COMPOSTOS\n2 - OBTER DADOS COMPOSTOS\n")
     if menu_selecionado == '1':
